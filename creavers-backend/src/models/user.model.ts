@@ -1,6 +1,6 @@
 import { prisma } from '../config/database';
 import { CreateUserDTO, UserResponse } from '../types/user.types';
-import { Role } from '@prisma/client';
+import { Role, User } from '@prisma/client';
 
 export class UserModel {
   private static userSelect = {
@@ -27,9 +27,26 @@ export class UserModel {
     });
   }
 
-  public static async findByEmail(email: string) {
+  public static async findByEmail(email: string): Promise<User | null> {
     return prisma.user.findUnique({
       where: { email },
+    });
+  }
+
+  public static async findByPhone(phone: string): Promise<User | null> {
+    return prisma.user.findFirst({
+      where: { phone },
+    });
+  }
+
+  public static async findByIdentifier(identifier: string): Promise<User | null> {
+    return prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: identifier },
+          { phone: identifier },
+        ],
+      },
     });
   }
 

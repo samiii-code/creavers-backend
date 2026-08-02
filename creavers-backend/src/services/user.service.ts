@@ -1,6 +1,6 @@
-import bcrypt from 'bcryptjs';
 import { UserModel } from '../models/user.model';
 import { CreateUserDTO, UserResponse } from '../types/user.types';
+import { AuthService } from './auth.service';
 
 export class UserService {
   public static async registerUser(dto: CreateUserDTO): Promise<UserResponse> {
@@ -21,9 +21,15 @@ export class UserService {
       }
     }
 
-    // Hash password with bcrypt (10 salt rounds)
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const existingPhoneUser = await UserModel.findByPhone(phone);
+    if (existingPhoneUser) {
+      const error: any = new Error('User with this phone number already exists');
+      error.statusCode = 409;
+      throw error;
+    }
+
+    // Hash password (validates min 8 characters)
+    const hashedPassword = await AuthService.hashPassword(password);
 
     const newUser = await UserModel.create({
       fullName,

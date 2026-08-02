@@ -14,3 +14,4 @@ export interface PaginationParams {
 }
 
 export * from './user.types';
+export * from './auth.types';

@@ -146,9 +146,39 @@ http://localhost:5000/api/v1
 ```
 
 
-### Health Check Endpoint
-- **URL**: `/api/v1/health`
-- **Method**: `GET`
+### Authentication Endpoints
+
+#### 1. User Login
+- **URL**: `/api/v1/auth/login`
+- **Method**: `POST`
+- **Body**:
+```json
+{
+  "identifier": "john@example.com",
+  "password": "securePassword123"
+}
+```
+*(Accepts either `phone` or `email` via `identifier`, `phone`, or `email` fields).*
+- **Response**: `200 OK`
+```json
+{
+  "success": true,
+  "message": "Login successful",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": {
+      "id": "uuid-v4-string",
+      "fullName": "John Doe",
+      "phone": "+1234567890",
+      "email": "john@example.com",
+      "role": "CUSTOMER",
+      "isVerified": false,
+      "createdAt": "2026-08-02T15:00:00.000Z",
+      "updatedAt": "2026-08-02T15:00:00.000Z"
+    }
+  }
+}
+```
 
 ### User Management Endpoints
 
