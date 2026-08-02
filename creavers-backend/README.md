@@ -145,25 +145,9 @@ npm start
 http://localhost:5000/api/v1
 ```
 
-### Health Check Endpoint
-Verify server status, uptime, and timestamp.
 
-- **URL**: `/api/v1/health`
-- **Method**: `GET`
-- **Response**: `200 OK`
-```json
-{
-  "success": true,
-  "data": {
-    "status": "UP",
-    "uptime": 12.45,
-    "timestamp": "2026-08-02T13:55:00.000Z",
-    "service": "creavers-backend"
-  }
-}
-```
 
----
+
 
 ## 🔮 Future Features
 
@@ -178,4 +162,4 @@ Verify server status, uptime, and timestamp.
 
 ## 📄 License
 
-This project is open source and available under the [ISC License](LICENSE).
+This project is open source and available under the [[ISC License](https://github.com/samiii-code)](LICENSE).
