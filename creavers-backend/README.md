@@ -150,18 +150,33 @@ Verify server status, uptime, and timestamp.
 
 - **URL**: `/api/v1/health`
 - **Method**: `GET`
-- **Response**: `200 OK`
+
+### User Management Endpoints
+
+#### 1. Register User
+- **URL**: `/api/v1/users/register`
+- **Method**: `POST`
+- **Body**:
 ```json
 {
-  "success": true,
-  "data": {
-    "status": "UP",
-    "uptime": 12.45,
-    "timestamp": "2026-08-02T13:55:00.000Z",
-    "service": "creavers-backend"
-  }
+  "fullName": "John Doe",
+  "phone": "+1234567890",
+  "email": "john@example.com",
+  "password": "securePassword123",
+  "role": "CUSTOMER"
 }
 ```
+*(Role options: `CUSTOMER`, `PROVIDER`, `ADMIN`. Defaults to `CUSTOMER` if omitted).*
+
+#### 2. Get All Users
+- **URL**: `/api/v1/users`
+- **Method**: `GET`
+- **Description**: Returns list of registered users (passwords excluded).
+
+#### 3. Get User By ID
+- **URL**: `/api/v1/users/:id`
+- **Method**: `GET`
+- **Description**: Fetches user profile by UUID (password excluded).
 
 ---
 

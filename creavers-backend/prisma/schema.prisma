@@ -9,7 +9,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Minimal placeholder entity to enable Prisma Client generation prior to defining domain models
-model HealthCheck {
-  id Int @id @default(1)
+enum Role {
+  CUSTOMER
+  PROVIDER
+  ADMIN
+}
+
+model User {
+  id         String   @id @default(uuid())
+  fullName   String
+  phone      String
+  email      String?  @unique
+  password   String
+  role       Role     @default(CUSTOMER)
+  isVerified Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("users")
 }
