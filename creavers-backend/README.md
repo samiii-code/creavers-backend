@@ -145,9 +145,8 @@ npm start
 http://localhost:5000/api/v1
 ```
 
-### Health Check Endpoint
-Verify server status, uptime, and timestamp.
 
+### Health Check Endpoint
 - **URL**: `/api/v1/health`
 - **Method**: `GET`
 
@@ -178,7 +177,7 @@ Verify server status, uptime, and timestamp.
 - **Method**: `GET`
 - **Description**: Fetches user profile by UUID (password excluded).
 
----
+
 
 ## 🔮 Future Features
 
@@ -193,4 +192,4 @@ Verify server status, uptime, and timestamp.
 
 ## 📄 License
 
-This project is open source and available under the [ISC License](LICENSE).
+This project is open source and available under the [[kenasa ](https://github.com/samiii-code)](LICENSE).
