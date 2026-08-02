@@ -1,0 +1,15 @@
+// Prisma schema file for creavers-backend
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Minimal placeholder entity to enable Prisma Client generation prior to defining domain models
+model HealthCheck {
+  id Int @id @default(1)
+}
