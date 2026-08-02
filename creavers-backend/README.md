@@ -162,4 +162,4 @@ http://localhost:5000/api/v1
 
 ## 📄 License
 
-This project is open source and available under the [[ISC License](https://github.com/samiii-code)](LICENSE).
+This project is open source and available under the [[kenasa ](https://github.com/samiii-code)](LICENSE).
