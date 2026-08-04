@@ -1,10 +1,3 @@
-import { Router } from 'express';
-import { registerUser, getUsers, getUserById } from '../controllers/user.controller';
+import userRoutes from '../modules/users/user.routes';
 
-const router = Router();
-
-router.post('/register', registerUser);
-router.get('/', getUsers);
-router.get('/:id', getUserById);
-
-export default router;
+export default userRoutes;
