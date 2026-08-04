@@ -31,7 +31,9 @@ setupSwagger(app);
 
 // Application Routes (includes GET / & GET /health)
 app.use('/', routes);
+app.use('/api', routes);
 app.use('/api/v1', routes);
+
 
 // 404 Not Found & Global Exception Middlewares
 app.use(notFoundHandler);
