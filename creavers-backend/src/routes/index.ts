@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { getIndex } from '../controllers/index.controller';
 import healthRoutes from './health.routes';
 import userRoutes from '../modules/users/user.routes';
-import authRoutes from './auth.routes';
+import authRoutes from '../modules/auth/auth.routes';
 
 const router = Router();
 
